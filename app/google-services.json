@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "824616127671",
+    "firebase_url": "https://lecturadeenergia-4e90d-default-rtdb.firebaseio.com",
+    "project_id": "lecturadeenergia-4e90d",
+    "storage_bucket": "lecturadeenergia-4e90d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:824616127671:android:a48ea8505241dff6629132",
+        "android_client_info": {
+          "package_name": "com.example.lecturadeenergia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFkp007Q3gk3cYYO6f5XCqv_o7xzuC3jc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
