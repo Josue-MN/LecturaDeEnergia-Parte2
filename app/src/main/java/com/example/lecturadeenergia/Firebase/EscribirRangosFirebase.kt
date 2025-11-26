@@ -14,7 +14,7 @@ fun EscribirRangosFirebase(
     //OBTIENE LA INSTANCIA DE LA REALTIME DATABASE DE FIREBASE
     val database = Firebase.database
 
-    val uidObtenido = obtenerUid()
+    var uidObtenido = obtenerUid()
 
     //OBTIENE LA REFERENCIA DE FIELD DEL DATO
     val consulta = database.getReference("rangosConfigurables/$uidObtenido")

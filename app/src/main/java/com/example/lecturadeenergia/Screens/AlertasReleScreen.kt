@@ -31,7 +31,6 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.lecturadeenergia.Firebase.LeerRangosFirebase
 import com.example.lecturadeenergia.Firebase.LeerReleDataFirebase
-import kotlinx.coroutines.delay
 
 @Composable
 fun AlertasReleScreen(navegacionControlada : NavController){
