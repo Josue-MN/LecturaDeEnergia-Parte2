@@ -12,6 +12,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.lecturadeenergia.Composables.BarraDeArriba
 import com.example.lecturadeenergia.Composables.BarraDeNavegacionDeBotonesAdmin
+import com.example.lecturadeenergia.Screens.AlertasReleScreen
 import com.example.lecturadeenergia.Screens.CortarReleScreen
 import com.example.lecturadeenergia.Screens.CortarScreen
 import com.example.lecturadeenergia.Screens.HistorialScreen
@@ -51,6 +52,7 @@ fun NavegacionControladaDeLaAppAdmin(){
         "horarios" to "Horarios de Activacion/Suspension",
         "rangoAlerta" to "Rangos de Alerta",
         "estadoRele" to "Estado del Rele",
+        "alertasRele" to "Alertas del Rele",
     )[rutaActual] ?: "home" //ESTABLECE LA RUTA ACTUAL EN CASO DE ERRORES, COMO SI LA VARIABLE SE DEFINIERA POR DEFECTO
 
     // SE GENERA UNA VARIABLE QUE CUANDO LA RUTA SEA DISTINTA DE LOGIN
@@ -107,6 +109,8 @@ fun NavegacionControladaDeLaAppAdmin(){
             composable("horarios") { HorariosScreen(navegacionControlada = navegacionControlada) }
             composable("rangoAlerta") { PantallaRangosAlertas(navegacionControlada = navegacionControlada) }
             composable("estadoRele") { CortarReleScreen(navegacionControlada = navegacionControlada) }
+            composable("alertasRele") { AlertasReleScreen(navegacionControlada = navegacionControlada) }
+
             }
         }
     }
