@@ -64,7 +64,7 @@ import com.example.lecturadeenergia.Firebase.LeerRangosAlertaFirebase
 //  - corriente_detectada y dispositivo_nombre se preservan siempre.
 // ---------------------------------------------------------------------
 @Composable
-fun PantallaRangosAlertas(navController: NavController) {
+fun PantallaRangosAlertas(navegacionControlada: NavController) {
 
     //BY REMEBER LE DICE QUE RECUERDE DICHA VARIABLE
     //MUTABLESTATEOF CREA UNA VARIABLE CON MEMORIA EN BASE A UN STRING "", REMEMBER
