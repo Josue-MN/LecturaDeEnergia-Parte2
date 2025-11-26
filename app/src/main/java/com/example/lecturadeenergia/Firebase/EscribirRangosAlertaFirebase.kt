@@ -14,8 +14,11 @@ fun EscribirRangosAlertasFirebase(
 ) {
     //OBTIENE LA INSTANCIA DE LA REALTIME DATABASE DE FIREBASE
     val database = Firebase.database
+
+    val uidObtenido = obtenerUid()
+
     //OBTIENE LA REFERENCIA DE FIELD DEL DATO
-    val consulta = database.getReference("rangosAlertaConfigurables")
+    val consulta = database.getReference("rangosAlertaConfigurables/$uidObtenido")
 
 
     //EMPAQUETA EN UNA VARIABLE LOS VaLORES SEGUN UN DATA CLASS(ConfiguracionDeRangos)

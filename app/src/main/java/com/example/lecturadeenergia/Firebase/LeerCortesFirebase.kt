@@ -12,8 +12,11 @@ fun LeerCortesFirebase(
 
     //OBTIENE LA INSTANCIA DE LA REALTIME DATABASE DE FIREBASE
     val database = Firebase.database
+
+    val uidObtenido = obtenerUid()
+
     //OBTIENE LA REFERENCIA DE FIELD DEL DATO
-    val consulta = database.getReference("cortesConfigurables")
+    val consulta = database.getReference("cortesConfigurables/$uidObtenido")
 
 
     //CONSULTA HACE REFERENCIA DE DONDE SE VA A LEER EL DATO Y GET LE DA VALOR
