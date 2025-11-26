@@ -29,9 +29,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.lecturadeenergia.Firebase.ConfiguracionDispositivoData
-import com.example.lecturadeenergia.Firebase.ConfiguracionReleData
-import com.example.lecturadeenergia.Firebase.LeerRangosAlertaFirebase
 import com.example.lecturadeenergia.Firebase.LeerRangosFirebase
 import com.example.lecturadeenergia.Firebase.LeerReleDataFirebase
 import kotlinx.coroutines.delay
@@ -41,8 +38,6 @@ fun AlertasReleScreen(navegacionControlada : NavController){
 
     //BY REMEBER LE DICE QUE RECUERDE DICHA VARIABLE
     //MUTABLESTATEOF CREA UNA VARIABLE CON MEMORIA EN BASE A UN VALOR, REMEMBER
-    var estadoActivacionRele by remember { mutableStateOf(false) }
-    var modoAutomaticoManual by remember { mutableStateOf(0) }
     var corrienteRele by remember { mutableStateOf(0.0) }
     var rangoMinimo by remember { mutableStateOf(0.0) }
     var rangoMaximo by remember { mutableStateOf(0.0) }
@@ -51,15 +46,11 @@ fun AlertasReleScreen(navegacionControlada : NavController){
     val contextoDelRele = LocalContext.current
 
     LaunchedEffect(Unit) {
-        //HACE QUE SE GENERE UN CCICLO INFINITO PAR AACTUALIZACION AUTOMATICA
-        while (true) {
             // Llama a tu función de LÓGICA DE LECTURA
             LeerReleDataFirebase(
                 //PASA UNA VARIABLE DE LECTURA
                 onSuccess = { ConfiguracionReleDataDispositivo ->
                     // ACTUALIZA LOS TEXTFIELD
-                    estadoActivacionRele = ConfiguracionReleDataDispositivo.estadoActivacionRele
-                    modoAutomaticoManual = ConfiguracionReleDataDispositivo.modoAutomaticoManual
                     corrienteRele = ConfiguracionReleDataDispositivo.corrienteRele
                 },
                 //MANDA EL ERROR CORRESPODIENTE
@@ -87,9 +78,6 @@ fun AlertasReleScreen(navegacionControlada : NavController){
                     ).show()
                 }
             )
-            //EL TIEMPO QUE DEMORA EN ACTUALIZAR
-            delay(9000)
-        }
     }
 
     Box(

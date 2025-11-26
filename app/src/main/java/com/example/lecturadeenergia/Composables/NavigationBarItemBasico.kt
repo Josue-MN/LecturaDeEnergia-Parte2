@@ -2,6 +2,8 @@ package com.example.lecturadeenergia.Composables
 
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AddAlert
+import androidx.compose.material.icons.filled.BackHand
 import androidx.compose.material.icons.filled.Bolt
 import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.Home
@@ -70,6 +72,34 @@ fun BarraDeNavegacionDeBotonesBasico(navegacionControlada: NavController){
             icon = { Icon(Icons.Filled.Bolt, "Cortar") },
             //TEXTO QUE APARECERA EN LA BARRA DE ABAJO SEGUN EL BOTON
             label = { Text("Energia") }
+        )
+        //LA CAJA QUE TENDRA EL CONTENIDO
+        NavigationBarItem(
+            //EL SELECT SIRVE PARA VER SI ESTA RUTA ES LA CORRECTA PARA SER FALSE O TRUE
+            //CUANDO EL OBSERVADOR CREADO (RUTAACTUAL) PARA SABER A CUAL SE LLAMA
+            selected = (rutaActual == "estadoRele"),
+            //LO QUE OCURRE CUANDO SE LLAMA AL BOTON(ONCLICK), SE LLAMA AL NAVCONTROLLER
+            //PARA NAVEGAR(NAVIAGTE) A LA RUTA(")
+            onClick = { navegacionControlada.navigate("estadoRele") },
+            //ICONO QUE APARECERA SEGUN IMPLEMENTACION(ICON) PARA TENER ICONOS PARA LA BARRA
+            //CON ICONS, LO DEMAS ES DE DONDE SE SACARA
+            icon = { Icon(Icons.Filled.BackHand, "estadoRele") },
+            //TEXTO QUE APARECERA EN LA BARRA DE ABAJO SEGUN EL BOTON
+            label = { Text("Estado del Rele") }
+        )
+        //LA CAJA QUE TENDRA EL CONTENIDO
+        NavigationBarItem(
+            //EL SELECT SIRVE PARA VER SI ESTA RUTA ES LA CORRECTA PARA SER FALSE O TRUE
+            //CUANDO EL OBSERVADOR CREADO (RUTAACTUAL) PARA SABER A CUAL SE LLAMA
+            selected = (rutaActual == "alertasRele"),
+            //LO QUE OCURRE CUANDO SE LLAMA AL BOTON(ONCLICK), SE LLAMA AL NAVCONTROLLER
+            //PARA NAVEGAR(NAVIAGTE) A LA RUTA(")
+            onClick = { navegacionControlada.navigate("alertasRele") },
+            //ICONO QUE APARECERA SEGUN IMPLEMENTACION(ICON) PARA TENER ICONOS PARA LA BARRA
+            //CON ICONS, LO DEMAS ES DE DONDE SE SACARA
+            icon = { Icon(Icons.Filled.AddAlert, "alertasRele") },
+            //TEXTO QUE APARECERA EN LA BARRA DE ABAJO SEGUN EL BOTON
+            label = { Text("Alertas del Rele") }
         )
     }
 }

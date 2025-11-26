@@ -1,6 +1,9 @@
 package com.example.lecturadeenergia.Composables
 
 
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.height
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AddAlert
 import androidx.compose.material.icons.filled.AvTimer
@@ -16,6 +19,8 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 
@@ -32,119 +37,125 @@ fun BarraDeNavegacionDeBotonesAdmin(navegacionControlada: NavController){
     //-> EL DESTINO (destination?) SEGUN UNA RUTA(route)
     val rutaActual = obsevadorDeNavegacionOculto?.destination?.route
 
-    //FUNCION QUE GENERA LAS CAJAS PARA LA BARRA DE ABAJO
-    NavigationBar {
-        //LA CAJA QUE TENDRA EL CONTENIDO
-        NavigationBarItem(
-            //EL SELECT SIRVE PARA VER SI ESTA RUTA ES LA CORRECTA PARA SER FALSE O TRUE
-            //CUANDO EL OBSERVADOR CREADO (RUTAACTUAL) PARA SABER A CUAL SE LLAMA
-            selected = (rutaActual == "home"),
-            //LO QUE OCURRE CUANDO SE LLAMA AL BOTON(ONCLICK), SE LLAMA AL NAVCONTROLLER
-            //PARA NAVEGAR(NAVIAGTE) A LA RUTA(")
-            onClick = { navegacionControlada.navigate("home") },
-            //ICONO QUE APARECERA SEGUN IMPLEMENTACION(ICON) PARA TENER ICONOS PARA LA BARRA
-            //CON ICONS, LO DEMAS ES DE DONDE SE SACARA
-            icon = { Icon(Icons.Default.Home, "Home") },
-            //TEXTO QUE APARECERA EN LA BARRA DE ABAJO SEGUN EL BOTON
-            label = { Text("Home") }
-        )
-        //LA CAJA QUE TENDRA EL CONTENIDO
-        NavigationBarItem(
-            //EL SELECT SIRVE PARA VER SI ESTA RUTA ES LA CORRECTA PARA SER FALSE O TRUE
-            //CUANDO EL OBSERVADOR CREADO (RUTAACTUAL) PARA SABER A CUAL SE LLAMA
-            selected = (rutaActual == "rangos"),
-            //LO QUE OCURRE CUANDO SE LLAMA AL BOTON(ONCLICK), SE LLAMA AL NAVCONTROLLER
-            //PARA NAVEGAR(NAVIAGTE) A LA RUTA(")
-            onClick = { navegacionControlada.navigate("rangos") },
-            //ICONO QUE APARECERA SEGUN IMPLEMENTACION(ICON) PARA TENER ICONOS PARA LA BARRA
-            //CON ICONS, LO DEMAS ES DE DONDE SE SACARA
-            icon = { Icon(Icons.Filled.Tune, "Rangos") },
-            //TEXTO QUE APARECERA EN LA BARRA DE ABAJO SEGUN EL BOTON
-            label = { Text("Rangos") }
-        )
-        //LA CAJA QUE TENDRA EL CONTENIDO
-        NavigationBarItem(
-            //EL SELECT SIRVE PARA VER SI ESTA RUTA ES LA CORRECTA PARA SER FALSE O TRUE
-            //CUANDO EL OBSERVADOR CREADO (RUTAACTUAL) PARA SABER A CUAL SE LLAMA
-            selected = (rutaActual == "historial"),
-            //LO QUE OCURRE CUANDO SE LLAMA AL BOTON(ONCLICK), SE LLAMA AL NAVCONTROLLER
-            //PARA NAVEGAR(NAVIAGTE) A LA RUTA(")
-            onClick = { navegacionControlada.navigate("historial") },
-            //ICONO QUE APARECERA SEGUN IMPLEMENTACION(ICON) PARA TENER ICONOS PARA LA BARRA
-            //CON ICONS, LO DEMAS ES DE DONDE SE SACARA
-            icon = { Icon(Icons.Filled.History, "Historial") },
-            //TEXTO QUE APARECERA EN LA BARRA DE ABAJO SEGUN EL BOTON
-            label = { Text("Historial") }
-        )
-        //LA CAJA QUE TENDRA EL CONTENIDO
-        NavigationBarItem(
-            //EL SELECT SIRVE PARA VER SI ESTA RUTA ES LA CORRECTA PARA SER FALSE O TRUE
-            //CUANDO EL OBSERVADOR CREADO (RUTAACTUAL) PARA SABER A CUAL SE LLAMA
-            selected = (rutaActual == "cortar"),
-            //LO QUE OCURRE CUANDO SE LLAMA AL BOTON(ONCLICK), SE LLAMA AL NAVCONTROLLER
-            //PARA NAVEGAR(NAVIAGTE) A LA RUTA(")
-            onClick = { navegacionControlada.navigate("cortar") },
-            //ICONO QUE APARECERA SEGUN IMPLEMENTACION(ICON) PARA TENER ICONOS PARA LA BARRA
-            //CON ICONS, LO DEMAS ES DE DONDE SE SACARA
-            icon = { Icon(Icons.Filled.Bolt, "Cortar") },
-            //TEXTO QUE APARECERA EN LA BARRA DE ABAJO SEGUN EL BOTON
-            label = { Text("Energia") }
-        )
-        //LA CAJA QUE TENDRA EL CONTENIDO
-        NavigationBarItem(
-            //EL SELECT SIRVE PARA VER SI ESTA RUTA ES LA CORRECTA PARA SER FALSE O TRUE
-            //CUANDO EL OBSERVADOR CREADO (RUTAACTUAL) PARA SABER A CUAL SE LLAMA
-            selected = (rutaActual == "horarios"),
-            //LO QUE OCURRE CUANDO SE LLAMA AL BOTON(ONCLICK), SE LLAMA AL NAVCONTROLLER
-            //PARA NAVEGAR(NAVIAGTE) A LA RUTA(")
-            onClick = { navegacionControlada.navigate("horarios") },
-            //ICONO QUE APARECERA SEGUN IMPLEMENTACION(ICON) PARA TENER ICONOS PARA LA BARRA
-            //CON ICONS, LO DEMAS ES DE DONDE SE SACARA
-            icon = { Icon(Icons.Filled.AvTimer, "Horarios") },
-            //TEXTO QUE APARECERA EN LA BARRA DE ABAJO SEGUN EL BOTON
-            label = { Text("Horarios") }
-        )
-        //LA CAJA QUE TENDRA EL CONTENIDO
-        NavigationBarItem(
-            //EL SELECT SIRVE PARA VER SI ESTA RUTA ES LA CORRECTA PARA SER FALSE O TRUE
-            //CUANDO EL OBSERVADOR CREADO (RUTAACTUAL) PARA SABER A CUAL SE LLAMA
-            selected = (rutaActual == "rangoAlerta"),
-            //LO QUE OCURRE CUANDO SE LLAMA AL BOTON(ONCLICK), SE LLAMA AL NAVCONTROLLER
-            //PARA NAVEGAR(NAVIAGTE) A LA RUTA(")
-            onClick = { navegacionControlada.navigate("rangoAlerta") },
-            //ICONO QUE APARECERA SEGUN IMPLEMENTACION(ICON) PARA TENER ICONOS PARA LA BARRA
-            //CON ICONS, LO DEMAS ES DE DONDE SE SACARA
-            icon = { Icon(Icons.Filled.Notifications, "RangoAlerta") },
-            //TEXTO QUE APARECERA EN LA BARRA DE ABAJO SEGUN EL BOTON
-            label = { Text("Alertas") }
-        )
-        //LA CAJA QUE TENDRA EL CONTENIDO
-        NavigationBarItem(
-            //EL SELECT SIRVE PARA VER SI ESTA RUTA ES LA CORRECTA PARA SER FALSE O TRUE
-            //CUANDO EL OBSERVADOR CREADO (RUTAACTUAL) PARA SABER A CUAL SE LLAMA
-            selected = (rutaActual == "estadoRele"),
-            //LO QUE OCURRE CUANDO SE LLAMA AL BOTON(ONCLICK), SE LLAMA AL NAVCONTROLLER
-            //PARA NAVEGAR(NAVIAGTE) A LA RUTA(")
-            onClick = { navegacionControlada.navigate("estadoRele") },
-            //ICONO QUE APARECERA SEGUN IMPLEMENTACION(ICON) PARA TENER ICONOS PARA LA BARRA
-            //CON ICONS, LO DEMAS ES DE DONDE SE SACARA
-            icon = { Icon(Icons.Filled.BackHand, "estadoRele") },
-            //TEXTO QUE APARECERA EN LA BARRA DE ABAJO SEGUN EL BOTON
-            label = { Text("Estado del Rele") }
-        )
-        //LA CAJA QUE TENDRA EL CONTENIDO
-        NavigationBarItem(
-            //EL SELECT SIRVE PARA VER SI ESTA RUTA ES LA CORRECTA PARA SER FALSE O TRUE
-            //CUANDO EL OBSERVADOR CREADO (RUTAACTUAL) PARA SABER A CUAL SE LLAMA
-            selected = (rutaActual == "alertasRele"),
-            //LO QUE OCURRE CUANDO SE LLAMA AL BOTON(ONCLICK), SE LLAMA AL NAVCONTROLLER
-            //PARA NAVEGAR(NAVIAGTE) A LA RUTA(")
-            onClick = { navegacionControlada.navigate("alertasRele") },
-            //ICONO QUE APARECERA SEGUN IMPLEMENTACION(ICON) PARA TENER ICONOS PARA LA BARRA
-            //CON ICONS, LO DEMAS ES DE DONDE SE SACARA
-            icon = { Icon(Icons.Filled.AddAlert, "alertasRele") },
-            //TEXTO QUE APARECERA EN LA BARRA DE ABAJO SEGUN EL BOTON
-            label = { Text("Alertas del Rele") }
-        )
+    Column {
+        //FUNCION QUE GENERA LAS CAJAS PARA LA BARRA DE ABAJO
+        NavigationBar (modifier = Modifier
+                .height(65.dp),
+                    windowInsets = WindowInsets(0.dp)){
+            //LA CAJA QUE TENDRA EL CONTENIDO
+            NavigationBarItem(
+                //EL SELECT SIRVE PARA VER SI ESTA RUTA ES LA CORRECTA PARA SER FALSE O TRUE
+                //CUANDO EL OBSERVADOR CREADO (RUTAACTUAL) PARA SABER A CUAL SE LLAMA
+                selected = (rutaActual == "home"),
+                //LO QUE OCURRE CUANDO SE LLAMA AL BOTON(ONCLICK), SE LLAMA AL NAVCONTROLLER
+                //PARA NAVEGAR(NAVIAGTE) A LA RUTA(")
+                onClick = { navegacionControlada.navigate("home") },
+                //ICONO QUE APARECERA SEGUN IMPLEMENTACION(ICON) PARA TENER ICONOS PARA LA BARRA
+                //CON ICONS, LO DEMAS ES DE DONDE SE SACARA
+                icon = { Icon(Icons.Default.Home, "Home") },
+                //TEXTO QUE APARECERA EN LA BARRA DE ABAJO SEGUN EL BOTON
+                label = { Text("Home") }
+            )
+            //LA CAJA QUE TENDRA EL CONTENIDO
+            NavigationBarItem(
+                //EL SELECT SIRVE PARA VER SI ESTA RUTA ES LA CORRECTA PARA SER FALSE O TRUE
+                //CUANDO EL OBSERVADOR CREADO (RUTAACTUAL) PARA SABER A CUAL SE LLAMA
+                selected = (rutaActual == "rangos"),
+                //LO QUE OCURRE CUANDO SE LLAMA AL BOTON(ONCLICK), SE LLAMA AL NAVCONTROLLER
+                //PARA NAVEGAR(NAVIAGTE) A LA RUTA(")
+                onClick = { navegacionControlada.navigate("rangos") },
+                //ICONO QUE APARECERA SEGUN IMPLEMENTACION(ICON) PARA TENER ICONOS PARA LA BARRA
+                //CON ICONS, LO DEMAS ES DE DONDE SE SACARA
+                icon = { Icon(Icons.Filled.Tune, "Rangos") },
+                //TEXTO QUE APARECERA EN LA BARRA DE ABAJO SEGUN EL BOTON
+                label = { Text("Rangos") }
+            )
+            //LA CAJA QUE TENDRA EL CONTENIDO
+            NavigationBarItem(
+                //EL SELECT SIRVE PARA VER SI ESTA RUTA ES LA CORRECTA PARA SER FALSE O TRUE
+                //CUANDO EL OBSERVADOR CREADO (RUTAACTUAL) PARA SABER A CUAL SE LLAMA
+                selected = (rutaActual == "historial"),
+                //LO QUE OCURRE CUANDO SE LLAMA AL BOTON(ONCLICK), SE LLAMA AL NAVCONTROLLER
+                //PARA NAVEGAR(NAVIAGTE) A LA RUTA(")
+                onClick = { navegacionControlada.navigate("historial") },
+                //ICONO QUE APARECERA SEGUN IMPLEMENTACION(ICON) PARA TENER ICONOS PARA LA BARRA
+                //CON ICONS, LO DEMAS ES DE DONDE SE SACARA
+                icon = { Icon(Icons.Filled.History, "Historial") },
+                //TEXTO QUE APARECERA EN LA BARRA DE ABAJO SEGUN EL BOTON
+                label = { Text("Historial") }
+            )
+            //LA CAJA QUE TENDRA EL CONTENIDO
+            NavigationBarItem(
+                //EL SELECT SIRVE PARA VER SI ESTA RUTA ES LA CORRECTA PARA SER FALSE O TRUE
+                //CUANDO EL OBSERVADOR CREADO (RUTAACTUAL) PARA SABER A CUAL SE LLAMA
+                selected = (rutaActual == "cortar"),
+                //LO QUE OCURRE CUANDO SE LLAMA AL BOTON(ONCLICK), SE LLAMA AL NAVCONTROLLER
+                //PARA NAVEGAR(NAVIAGTE) A LA RUTA(")
+                onClick = { navegacionControlada.navigate("cortar") },
+                //ICONO QUE APARECERA SEGUN IMPLEMENTACION(ICON) PARA TENER ICONOS PARA LA BARRA
+                //CON ICONS, LO DEMAS ES DE DONDE SE SACARA
+                icon = { Icon(Icons.Filled.Bolt, "Cortar") },
+                //TEXTO QUE APARECERA EN LA BARRA DE ABAJO SEGUN EL BOTON
+                label = { Text("Energia") }
+            )
+        }
+        NavigationBar {
+            //LA CAJA QUE TENDRA EL CONTENIDO
+            NavigationBarItem(
+                //EL SELECT SIRVE PARA VER SI ESTA RUTA ES LA CORRECTA PARA SER FALSE O TRUE
+                //CUANDO EL OBSERVADOR CREADO (RUTAACTUAL) PARA SABER A CUAL SE LLAMA
+                selected = (rutaActual == "horarios"),
+                //LO QUE OCURRE CUANDO SE LLAMA AL BOTON(ONCLICK), SE LLAMA AL NAVCONTROLLER
+                //PARA NAVEGAR(NAVIAGTE) A LA RUTA(")
+                onClick = { navegacionControlada.navigate("horarios") },
+                //ICONO QUE APARECERA SEGUN IMPLEMENTACION(ICON) PARA TENER ICONOS PARA LA BARRA
+                //CON ICONS, LO DEMAS ES DE DONDE SE SACARA
+                icon = { Icon(Icons.Filled.AvTimer, "Horarios") },
+                //TEXTO QUE APARECERA EN LA BARRA DE ABAJO SEGUN EL BOTON
+                label = { Text("Horarios") }
+            )
+            //LA CAJA QUE TENDRA EL CONTENIDO
+            NavigationBarItem(
+                //EL SELECT SIRVE PARA VER SI ESTA RUTA ES LA CORRECTA PARA SER FALSE O TRUE
+                //CUANDO EL OBSERVADOR CREADO (RUTAACTUAL) PARA SABER A CUAL SE LLAMA
+                selected = (rutaActual == "rangoAlerta"),
+                //LO QUE OCURRE CUANDO SE LLAMA AL BOTON(ONCLICK), SE LLAMA AL NAVCONTROLLER
+                //PARA NAVEGAR(NAVIAGTE) A LA RUTA(")
+                onClick = { navegacionControlada.navigate("rangoAlerta") },
+                //ICONO QUE APARECERA SEGUN IMPLEMENTACION(ICON) PARA TENER ICONOS PARA LA BARRA
+                //CON ICONS, LO DEMAS ES DE DONDE SE SACARA
+                icon = { Icon(Icons.Filled.Notifications, "RangoAlerta") },
+                //TEXTO QUE APARECERA EN LA BARRA DE ABAJO SEGUN EL BOTON
+                label = { Text("Alertas") }
+            )
+            //LA CAJA QUE TENDRA EL CONTENIDO
+            NavigationBarItem(
+                //EL SELECT SIRVE PARA VER SI ESTA RUTA ES LA CORRECTA PARA SER FALSE O TRUE
+                //CUANDO EL OBSERVADOR CREADO (RUTAACTUAL) PARA SABER A CUAL SE LLAMA
+                selected = (rutaActual == "estadoRele"),
+                //LO QUE OCURRE CUANDO SE LLAMA AL BOTON(ONCLICK), SE LLAMA AL NAVCONTROLLER
+                //PARA NAVEGAR(NAVIAGTE) A LA RUTA(")
+                onClick = { navegacionControlada.navigate("estadoRele") },
+                //ICONO QUE APARECERA SEGUN IMPLEMENTACION(ICON) PARA TENER ICONOS PARA LA BARRA
+                //CON ICONS, LO DEMAS ES DE DONDE SE SACARA
+                icon = { Icon(Icons.Filled.BackHand, "estadoRele") },
+                //TEXTO QUE APARECERA EN LA BARRA DE ABAJO SEGUN EL BOTON
+                label = { Text("Estado del Rele") }
+            )
+            //LA CAJA QUE TENDRA EL CONTENIDO
+            NavigationBarItem(
+                //EL SELECT SIRVE PARA VER SI ESTA RUTA ES LA CORRECTA PARA SER FALSE O TRUE
+                //CUANDO EL OBSERVADOR CREADO (RUTAACTUAL) PARA SABER A CUAL SE LLAMA
+                selected = (rutaActual == "alertasRele"),
+                //LO QUE OCURRE CUANDO SE LLAMA AL BOTON(ONCLICK), SE LLAMA AL NAVCONTROLLER
+                //PARA NAVEGAR(NAVIAGTE) A LA RUTA(")
+                onClick = { navegacionControlada.navigate("alertasRele") },
+                //ICONO QUE APARECERA SEGUN IMPLEMENTACION(ICON) PARA TENER ICONOS PARA LA BARRA
+                //CON ICONS, LO DEMAS ES DE DONDE SE SACARA
+                icon = { Icon(Icons.Filled.AddAlert, "alertasRele") },
+                //TEXTO QUE APARECERA EN LA BARRA DE ABAJO SEGUN EL BOTON
+                label = { Text("Alertas del Rele") }
+            )
+        }
     }
 }

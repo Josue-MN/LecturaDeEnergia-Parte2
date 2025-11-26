@@ -12,6 +12,8 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.lecturadeenergia.Composables.BarraDeArriba
 import com.example.lecturadeenergia.Composables.BarraDeNavegacionDeBotonesBasico
+import com.example.lecturadeenergia.Screens.AlertasReleScreen
+import com.example.lecturadeenergia.Screens.CortarReleScreen
 import com.example.lecturadeenergia.Screens.CortarScreen
 import com.example.lecturadeenergia.Screens.HistorialScreen
 import com.example.lecturadeenergia.Screens.HomeScreen
@@ -43,6 +45,8 @@ fun NavegacionControladaDeLaAppBasica(){
         "home" to "Inicio",
         "historial" to "Historial de Mediciones",
         "cortar" to "Control de Energía",
+        "estadoRele" to "Estado del Rele",
+        "alertasRele" to "Alertas del Rele",
     )[rutaActual] ?: "home" //ESTABLECE LA RUTA ACTUAL Y EN CASO DE ERRORES, COMO SI LA VARIABLE SE DEFINIERA POR DEFECTO
 
 
@@ -96,6 +100,8 @@ fun NavegacionControladaDeLaAppBasica(){
             composable("home") { HomeScreen(navegacionControlada = navegacionControlada) }
             composable("historial") { HistorialScreen(navegacionControlada = navegacionControlada) }
             composable("cortar") { CortarScreen(navegacionControlada = navegacionControlada) }
+            composable("estadoRele") { CortarReleScreen(navegacionControlada = navegacionControlada) }
+            composable("alertasRele") { AlertasReleScreen(navegacionControlada = navegacionControlada) }
             }
         }
     }
