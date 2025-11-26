@@ -7,11 +7,11 @@ data class ConfiguracionDispositivoData(
 
     // Objeto que contiene los datos de las alertas configuradas
     // Firebase interpreta este campo como un sub-objeto JSON automáticamente
-    var alertas_dispositivo: AlertasDispositivo = AlertasDispositivo(),
+    var alertas_dispositivo: ConfiguracionRangosAlertaDispositivo = ConfiguracionRangosAlertaDispositivo(),
 
     // Objeto que contiene los datos del relé
     // También es interpretado como un sub-objeto JSON
-    var datos_rele: ReleData = ReleData()
+    var datos_rele: ConfiguracionReleData = ConfiguracionReleData()
 ) {
 
     // Constructor vacío requerido por Firebase
@@ -21,7 +21,7 @@ data class ConfiguracionDispositivoData(
         "",              // dispositivo_nombre
         0,               // estado_agregado
         0.0,             // corriente_detectada
-        AlertasDispositivo(),
-        ReleData()
+        ConfiguracionRangosAlertaDispositivo(),
+        ConfiguracionReleData()
     )
 }

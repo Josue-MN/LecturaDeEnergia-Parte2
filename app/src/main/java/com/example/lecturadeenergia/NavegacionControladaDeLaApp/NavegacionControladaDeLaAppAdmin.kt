@@ -18,6 +18,7 @@ import com.example.lecturadeenergia.Screens.HomeScreen
 import com.example.lecturadeenergia.Screens.HorariosScreen
 import com.example.lecturadeenergia.Screens.LoginScreen
 import com.example.lecturadeenergia.Screens.RangosScreen
+import com.example.myapplication.Screens.PantallaRangosAlertas
 
 @Composable
 //ESTE  @ SE GENERA PARA AVISARLE A KOTLIN QUE SE QUE USARE FUNCIONES EXPERIEMNTALES Y NO
@@ -46,7 +47,8 @@ fun NavegacionControladaDeLaAppAdmin(){
         "rangos" to "Rangos de Apagado",
         "historial" to "Historial de Mediciones",
         "cortar" to "Control de Energía",
-        "horarios" to "Horarios de Activacion/Suspension"
+        "horarios" to "Horarios de Activacion/Suspension",
+        "rangoAlerta" to "Rangos de Alerta"
     )[rutaActual] ?: "home" //ESTABLECE LA RUTA ACTUAL EN CASO DE ERRORES, COMO SI LA VARIABLE SE DEFINIERA POR DEFECTO
 
     // SE GENERA UNA VARIABLE QUE CUANDO LA RUTA SEA DISTINTA DE LOGIN
@@ -101,6 +103,7 @@ fun NavegacionControladaDeLaAppAdmin(){
             composable("historial") { HistorialScreen(navegacionControlada = navegacionControlada) }
             composable("cortar") { CortarScreen(navegacionControlada = navegacionControlada) }
             composable("horarios") { HorariosScreen(navegacionControlada = navegacionControlada) }
+            composable("rangoAlerta") { PantallaRangosAlertas(navegacionControlada) }
             }
         }
     }
