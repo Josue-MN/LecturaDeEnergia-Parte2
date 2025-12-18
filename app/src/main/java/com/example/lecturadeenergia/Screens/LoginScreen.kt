@@ -112,7 +112,7 @@ fun LoginScreen(navegacionControlada: NavController){
                                 //EL WIDGET EMERGENTE SE CREA CON TOAST, MAKETEXT MUSTRA EL TEXTO EMERGENTE
                                 //Y CON LENGTH_LONG HACE QUE EL MENSAJE SE DEMORE MAS EN DESAPARECER
                                 Toast.makeText(contextoDelLogin,
-                                    "Bienvenido a la app, $cargo",
+                                    "Bienvenido a la app",
                                     Toast.LENGTH_LONG).show()
                                 if (cargo == "administrador"){
                                     navegacionControlada.navigate("rutasDeUAdmin") {

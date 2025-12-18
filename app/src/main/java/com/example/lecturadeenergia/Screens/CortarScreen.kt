@@ -84,7 +84,7 @@ fun CortarScreen(navegacionControlada: NavController){
         ) {
             Text(
                 text = ("En este apartado podras manejar el encendido y apagado " +
-                        "del equipo de energia del electrodomestico"),
+                        "de la corriente del sensor por lo que no enviara datos de voltaje"),
                 // --> MODIFIER PARA EL ESTILO DEL TEXTO
                 modifier = Modifier
                     .padding(horizontal = 10.dp) //MANEJAA EL ESPACIO ENTRE UNAA PARED Y LO HORIZONTAL
@@ -93,6 +93,15 @@ fun CortarScreen(navegacionControlada: NavController){
                     //.background(Color.Red)
                     //.aspectRatio(2f),  //HACE QUE LA ALTURA SEA IGUAL AL ANCHO
                 // --> FONTSIZE ES EL TAMAÑO DE LA LETRA
+                fontSize = 22.sp,
+
+                )
+            Text(
+                text = (" "),
+                // --> MODIFIER PARA EL ESTILO DEL TEXTO
+                modifier = Modifier
+                    .padding(horizontal = 10.dp) //MANEJAA EL ESPACIO ENTRE UNAA PARED Y LO HORIZONTAL
+                    .padding(top = 10.dp), //MANEJAA EL ESPACIO ENTRE UNA PARED Y LO QUE ESTE ABAJO
                 fontSize = 22.sp,
 
                 )
