@@ -14,6 +14,8 @@ import androidx.core.content.ContextCompat
 import com.example.lecturadeenergia.NavegacionControladaDeLaApp.NavegacionSegunCargo
 import com.example.lecturadeenergia.Notificaciones.crearCanalNotificaciones
 import com.example.lecturadeenergia.ViewModel.AlertasReleViewModel
+import com.google.firebase.Firebase
+import com.google.firebase.database.database
 
 class MainActivity : ComponentActivity() {
 
@@ -22,6 +24,10 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        //HABILITA EL GUARDADO LOCAL DE FIREBISE EN CASO DE PERDER LA
+        //CONEXION
+        Firebase.database.setPersistenceEnabled(true)
 
         // CREAR CANAL DE NOTIFICACIONES
         crearCanalNotificaciones(this)
